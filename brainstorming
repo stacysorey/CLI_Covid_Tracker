@@ -18,3 +18,11 @@ How I want this to Work:
 -user can look at national or state covid report data
 -for state: user inputs state code and receives output of their stats
 -data is listed in an easy-to-read format
+
+
+
+
+git status
+git add .
+git commit -m " "
+git push origin master
