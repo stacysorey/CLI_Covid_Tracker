@@ -1,0 +1,20 @@
+How to Build a CLI Gem
+
+1. Plan your gem, imagine your interface
+2. Start with the project structure - google
+3. Start with the entry point - the file run
+4. force that to build the CLI interface
+5. stub out the interface
+6. start making things real
+7. discover objects.
+8. program
+
+
+- a command line interface for covid tracking
+- found a website that has covid data APIs
+
+
+How I want this to Work:
+-user can look at national or state covid report data
+-for state: user inputs state code and receives output of their stats
+-data is listed in an easy-to-read format
