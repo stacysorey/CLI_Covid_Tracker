@@ -26,3 +26,26 @@ git status
 git add .
 git commit -m " "
 git push origin master
+
+#!/usr/bin/env ruby
+shebang line-- says this file is a ruby file 
+require/require_relative only look at files, not folders
+    require is absolute path (./ is entire project), will always look at home folder
+    require_relative would be (./without lib)
+
+
+Covid Tracking app with covid data APIs
+// welcome user
+// ask for national or state
+// if national, list national stats
+// if state, ask for state code
+// list state stats
+// exit 
+//"stay safe and make sure to wear a mask! Goodbye"
+
+
+
+-CLI class -- dealing with terminal 
+-API class -- to deal with API info
+-national class -- deal with national stats
+-state class -- deal with state stats
