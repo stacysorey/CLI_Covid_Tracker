@@ -1,3 +1,8 @@
 #!/usr/bin/env ruby
 
-puts "hello world"
+require "./lib/environment"
+
+CLI.new.call
+#creates a new instance of CLI
+#start is an instance method
+#calling start on instance of CLI
