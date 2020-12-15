@@ -44,6 +44,7 @@ class CLI
 
         input = gets.strip.downcase
         if input == "y"
+            Stats.clear
             start
         elsif input == "n"
            goodbye
@@ -62,37 +63,41 @@ class CLI
         exit
     end
 
-   def pick_state
+    def pick_state
     puts ""
-    puts "#{@@underline}----Input number for desired state----#{@@rem_line}"
-    #put a note for territories
+    puts "#{@@underline}----Input number for desired state or territory----#{@@rem_line}"
+    puts ""
+    puts "#{@@red} FOR YOUR REFERENCE:"
+    puts ""
+    puts "4.  #{@@white}AS = American Samoa    #{@@red}9. #{@@white}DC = District of Columbia"
+    puts "#{@@red}13. #{@@white}GU = Guam             #{@@red}28. #{@@white}MP = Northern Marianas"
+    puts "#{@@red}43. #{@@white}PR = Puerto Rico      #{@@red}51. #{@@white}VI = Virgin Islands"
     puts ""
     puts ""
     states = Stats.find_states
     states.each.with_index(1) do |state, index|
         puts "#{@@red}#{index}. #{@@white}#{state.state}#{@@red}"
-    #input = gets.strip.to_i
-    
     end
     
     input = gets.strip.to_i
-    if input == /[1-56]/ #FIXXXXXXXXXXXXXXX
+    if input.between?(1, 56)  
         list_state_data(input)
     else
         puts "Invalid input."
         puts "Would you like to select again? (Y) or (N)"
         pick = gets.strip.downcase
         if pick == "y"
-        pick_state
+            pick_state
         else
             goodbye
         end
     end
-   end
+    end
+
 
    def list_state_data(input)
     index = input - 1
-    state = Stats.new.find_states[index]
+    state = Stats.find_states[index]
     puts ""
     puts "#{@@underline}Report for #{state.state} on #{state.date}:#{@@rem_line}#{@@red}"
     list_stats(state)
@@ -100,15 +105,12 @@ class CLI
     puts ""
     puts ""
    end
-   #if called multiple times, lists states multiple times (up to 160s)
  
-
    def list_national_data
     nat = Stats.find_national
     puts ""
     puts "#{@@underline}National Report for #{nat.date}#{@@rem_line}#{@@red}:"
     list_stats(nat)
-    
    end
 
    def list_stats(stat)
