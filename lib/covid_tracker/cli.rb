@@ -33,7 +33,7 @@ class CLI
         elsif input == "e"
             goodbye
         else
-            puts "#{@@red}***Incorrect input***"
+            puts "#{@@red}***Invalid Input***"
             start
         end
         
@@ -50,7 +50,7 @@ class CLI
            goodbye
         else
             puts ""
-            puts "#{@@red}***Incorrect input***"
+            puts "#{@@red}***Invalid Input***"
             start
         end
     end
@@ -83,17 +83,23 @@ class CLI
     if input.between?(1, 56)  
         list_state_data(input)
     else
-        puts "Invalid input."
-        puts "Would you like to select again? (Y) or (N)"
+        puts ""
+        puts "***Invalid Input***"
+        puts ""
+        puts "#{@@blu}Would you like to select again? #{@@grn}(Y) #{@@blu}or #{@@grn}(N)"
+        puts ""
         pick = gets.strip.downcase
         if pick == "y"
             pick_state
-        else
+        elsif pick == "n"
             goodbye
+        else
+            puts ""
+            puts "#{@@red}***Invalid Input***"
+            pick
         end
     end
     end
-
 
    def list_state_data(input)
     index = input - 1
